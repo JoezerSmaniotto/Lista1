@@ -1,7 +1,8 @@
 package br.edu.ifsul.model;
-
-//public class Produto implements Comparable<Produto> {
-public class Produto  {
+// Desta forma professor, antes do JAVA 8
+// public class Produto implements Comparable<Produto> { P O R E M    N Ã O    U S A R    D I M O N D   < >
+public class Produto implements Comparable {
+//public class Produto  {
     /* Atributos*/
     private int  id;
     private String nome;
@@ -67,14 +68,18 @@ public class Produto  {
     }
 
 
-    /*@Override public int compareTo(Produto outroProduto) {
-        if (this.id > outroProduto.getId()) {
+    /*@Override public int compareTo(Produto outroProduto) {*/
+    @Override
+    public int compareTo(Object outroProduto) {
+        //if (this.id > outroProduto.getId()) {
+        if (this.id > ((Produto) outroProduto).getId()) {
             return -1;
-        } if (this.id < outroProduto.getId()) {
+        //} if (this.id < outroProduto.getId()) {
+        } if (this.id < ((Produto) outroProduto).getId()) {
             return 1;
         }
         return 0;
-    }*/
+    }
 
 
 

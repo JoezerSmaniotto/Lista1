@@ -98,13 +98,13 @@ public class Main {
     Produto  produto6 = new Produto("Tenis", "Nike", 230.00, 26,6);
     produtoList.add(produto6);
 
-
+    // LIST
 
     System.out.println("LIST");
     System.out.println(produtoList);
 
     // Metodos de pesquisa
-    /*Metodos Antigo  ate a versão 8de forEach
+    /*Metodos Antigo  ate a versão 8de forEach professor
       for(Produto prod : produtoList){
            if(prod.getId() == 3){
             System.out.println("Obj 2 de ID 3");
@@ -114,7 +114,7 @@ public class Main {
       }*/
 
 
-    // FIltrar pelo id  Metodo NOVO
+    // FIltrar pelo id  Metodo NOVO Profesor
     produtoList.forEach(p->{
         if(p.getId() == 3){
             System.out.println("Obj 1 de ID 3");
@@ -124,7 +124,7 @@ public class Main {
     });
 
 
-    /* Filtrando pelo ID 3
+    /* Filtrando pelo ID 3 EU
     List<Produto> result = produtoList.stream()
     .filter(a -> Objects.equals(a.getId(),3))
     .collect(Collectors.toList());
@@ -137,11 +137,32 @@ public class Main {
     */
 
 
-    // Ordenação de LIST
+    // Ordenação de LIST  PROFESSOR JAVA 8 PARA C I M A
     produtoList.sort(Comparator.comparingInt(Produto::getId).reversed()); // :: Opereador de resolução de escopo
 
+    // Outra forma de ordenação professor J A V A  8  P A R A  B A I X O   A L T E R A N D O   N A  C L A S S E
+    Collections.shuffle(produtoList); // Embaralha a array
+    System.out.println("\nLista Embaralhada: " +produtoList);
+    Collections.sort(produtoList);
+    System.out.println("\nLista Ordenada: " +produtoList);
 
-    Collections.sort(produtoList, Comparator.comparing(Produto::getId)); // Ordena o LIST
+    // F A Z E N D O   O R D E N A Ç Ã O   I N L I N E
+    Collections.shuffle(produtoList); // Embaralha a array
+    System.out.println("\nLista Embaralhada Com ordenação Inline: " +produtoList);
+    produtoList.sort((p1,p2) -> {
+        if ( p1.getId() > p2.getId() ) {
+            return -1;
+            //} if (this.id < outroProduto.getId()) {
+        } if ( p1.getId() < p2.getId()) {
+            return 1;
+        }
+        return 0;
+    });
+    Collections.sort(produtoList);
+    System.out.println("\nLista Ordenada Com metodo Inline: " +produtoList);
+
+    // Ordena o LIST  M A T H E U S
+    Collections.sort(produtoList, Comparator.comparing(Produto::getId));
     Collections.reverse(produtoList);  // Faço minha ordenação ficar em ordem decrescemte com o Reverse
     System.out.println(produtoList);
 
